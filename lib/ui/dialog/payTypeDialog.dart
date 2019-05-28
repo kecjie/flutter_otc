@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:otc/bean/tagBean.dart';
 import 'package:otc/values/values.dart';
 
-import 'package:otc/view/baseTag.dart';
+import 'package:otc/ui/widget/baseTag.dart';
 
 class PayTypeDialog extends StatefulWidget {
   final List<PayTypeTag> list;

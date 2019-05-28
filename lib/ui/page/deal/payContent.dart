@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:otc/bean/payBean.dart';
-import 'package:otc/view/payDialog.dart';
+import 'package:otc/ui/dialog/payDialog.dart';
 import 'package:otc/values/color.dart';
 
 class PayContent extends StatefulWidget {

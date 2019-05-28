@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:otc/ui/page/advertise/advertisePage.dart';
+import 'package:otc/ui/page/deal/dealPage.dart';
+import 'package:otc/ui/page/market/homePage.dart';
 
-import 'package:otc/main/advertise/advertisePage.dart';
+import 'package:otc/ui/page/mine/minePage.dart';
+import 'package:otc/ui/page/wallet/walletPage.dart';
 import 'appBottomNavigationBar.dart';
 
-import 'package:otc/main/deal/dealPage.dart';
-import 'package:otc/main/market/homePage.dart';
-import 'package:otc/main/mine/minePage.dart';
-import 'package:otc/main/wallet/walletPage.dart';
 
 /**
  * 主页

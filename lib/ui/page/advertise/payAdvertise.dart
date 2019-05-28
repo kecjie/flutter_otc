@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:otc/bean/payAdvertiseBean.dart';
-import 'package:otc/view/dialog.dart';
+import 'package:otc/ui/dialog/dialog.dart';
 import 'package:otc/values/color.dart';
 
 class PayAdvertise extends StatefulWidget {

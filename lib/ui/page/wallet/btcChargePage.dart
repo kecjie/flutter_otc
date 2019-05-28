@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:otc/commom/commom_ui.dart';
 import 'package:otc/commom/titleBar.dart';
-import 'package:otc/main/wallet/qRCodePage.dart';
 import 'package:otc/values/color.dart';
+
+import 'qRCodePage.dart';
 
 class BtcChargePage extends StatefulWidget {
   @override

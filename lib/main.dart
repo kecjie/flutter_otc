@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otc/user/login.dart';
+import 'package:otc/ui/page/user/login.dart';
 import 'package:otc/values/color.dart';
 
 void main() {

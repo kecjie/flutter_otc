@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:otc/commom/commom.dart';
-import 'package:otc/main/mainPage.dart';
-import 'package:otc/user/findPwd.dart';
-import 'package:otc/user/register.dart';
+import 'package:otc/ui/page/main/mainPage.dart';
+
+import 'findPwd.dart';
+import 'register.dart';
 
 
 class Login extends StatelessWidget {

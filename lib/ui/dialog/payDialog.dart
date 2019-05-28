@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:otc/main/deal/payDetailPage.dart';
+import 'package:otc/ui/page/deal/payDetailPage.dart';
 import 'package:otc/values/values.dart';
 import 'package:otc/commom/commom_ui.dart';
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:otc/commom/titleBar.dart';
-import 'package:otc/user/phoneRegister.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:otc/values/color.dart';
 
 import 'emailRegister.dart';
+import 'phoneRegister.dart';
 
 class Register extends StatelessWidget {
   @override

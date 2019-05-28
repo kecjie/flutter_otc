@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:otc/main/deal/payContent.dart';
-import 'package:otc/view/drawer.dart';
 import 'package:otc/values/color.dart';
 
-class DealPage extends StatefulWidget {
+import 'payAdvertise.dart';
+import 'publishAdPage.dart';
+
+///广告
+class AdvertisePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return DealPageState();
+    // TODO: implement createState
+    return AdvertisePageState();
   }
 }
 
-class DealPageState extends State<DealPage>
+class AdvertisePageState extends State<AdvertisePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   void dispose() {
@@ -42,7 +43,6 @@ class DealPageState extends State<DealPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Container(
@@ -51,7 +51,9 @@ class DealPageState extends State<DealPage>
           decoration: BoxDecoration(
               border: Border.all(color: Colors.white),
               borderRadius: BorderRadius.all(Radius.circular(5))),
-          child: TabBar(onTap: _onTab, controller: _tabController,
+          child: TabBar(
+              onTap: _onTab,
+              controller: _tabController,
               indicator: BoxDecoration(
                   border: Border.all(color: Colors.white),
                   color: Colors.white,
@@ -78,43 +80,31 @@ class DealPageState extends State<DealPage>
               ]),
         ),
         centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              if (Scaffold.of(context).isEndDrawerOpen) {
-                Navigator.pop(context);
-              } else {
-                _scaffoldKey.currentState.openEndDrawer();
-              }
-              Fluttertoast.showToast(msg: "ddddddd==");
-            },
+      ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: c_2B3F77,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("发布",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  )),
+              Text("广告",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  )),
+            ],
           ),
-        ],
-      ),
-      endDrawer: Drawer(
-        child: Container(
-          child: DealDrawer(),
-        ),
-      ),
-      body: TabBarView(controller: _tabController, children: <Widget>[
-        PayContent(),
-        PayContent(),
-      ]),
-      floatingActionButton: Container(
-        width: 100,
-        height: 44,
-        decoration: BoxDecoration(
-            border: Border.all(color: c_2B3F77),
-            borderRadius: BorderRadius.all(Radius.circular(22))),
-        child: FloatingActionButton(
-            backgroundColor: Colors.white,
-            child: Text("一键交易", style: TextStyle(color: c_2B3F77)),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
-            onPressed: () => {}),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          onPressed: () => {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PublishAdPage()))
+              }),
+      body: _isLeft ? PayAdvertise() : PayAdvertise(),
     );
   }
 }

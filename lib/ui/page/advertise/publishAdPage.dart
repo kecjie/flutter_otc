@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:otc/bean/tagBean.dart';
 import 'package:otc/commom/commom_ui.dart';
-import 'package:otc/view/tagList.dart';
+import 'package:otc/ui/widget/tagList.dart';
 import 'package:otc/values/values.dart';
 
-import 'package:otc/view/payTypeDialog.dart';
+import 'package:otc/ui/dialog/payTypeDialog.dart';
 
 class PublishAdPage extends StatefulWidget {
   PublishAdPage({Key key}) : super(key: key);
