@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:otc/values/color.dart';
 
 ///带下划线的输入框
-Widget getInput(String hintText, {bool obscureText = false}) {
-  return Column(
-    children: <Widget>[
-      TextFormField(
-        decoration: new InputDecoration(
-          border: InputBorder.none,
-          hintText: hintText,
-          hintStyle: TextStyle(color: Color(0xFFB6B6B6)),
-        ),
-        obscureText: obscureText,
+Widget getInput(String hintText,
+    {bool obscureText = false,
+    EdgeInsets contentPadding = const EdgeInsets.all(10),
+    TextEditingController controller,
+    Color borderColor = c_EDEDED,
+    Color backgroudColor = Colors.white}) {
+  return Container(
+    color: backgroudColor,
+    child: TextFormField(
+      controller: controller,
+      decoration: new InputDecoration(
+        border:
+            UnderlineInputBorder(borderSide: BorderSide(color: borderColor)),
+        enabledBorder:
+            UnderlineInputBorder(borderSide: BorderSide(color: borderColor)),
+        hintText: hintText,
+        hintStyle: TextStyle(color: Color(0xFFB6B6B6)),
+        contentPadding: contentPadding,
       ),
-      Divider(),
-    ],
+      obscureText: obscureText,
+    ),
   );
 }
 
@@ -23,17 +31,21 @@ Widget getInput2(
     {String hintText = "",
     double height = 30,
     double width,
+    int maxLine = 1,
+    EdgeInsets contentPadding = const EdgeInsets.all(6),
     Color borderColor = c_EDEDED,
     TextEditingController controller}) {
   return ConstrainedBox(
     constraints: BoxConstraints(
-      maxHeight: height,
+      minHeight: height,
       maxWidth: width != null ? width : double.infinity,
     ),
     child: TextField(
+      style: TextStyle(),
+      maxLines: maxLine, //随便写的，暂不知道具体用法
       controller: controller,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(4.0),
+        contentPadding: contentPadding,
         hintText: hintText,
         border: OutlineInputBorder(borderSide: BorderSide(color: borderColor)),
         enabledBorder:
@@ -91,4 +103,16 @@ Widget getBtn2(
       child: Text(text, style: TextStyle(color: textColor, fontSize: fontsize)),
     ),
   );
+}
+
+///条目样式
+Widget getItem(String item,{Alignment alignment=Alignment.center,EdgeInsets padding=const EdgeInsets.only(left: 15)}) {
+  return Container(
+      alignment: alignment,
+      padding: padding,
+      width: double.infinity,
+      height: 40,
+      decoration:
+          BoxDecoration(border: Border(bottom: BorderSide(color: c_F0F0F0))),
+      child: Text(item));
 }

@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:otc/commom/commom.dart';
+import 'package:otc/commom/commom_ui.dart';
 import 'package:otc/ui/page/main/mainPage.dart';
+import 'package:otc/values/values.dart';
 
 import 'findPwd.dart';
 import 'register.dart';
-
 
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF9B9B9B)),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
+        appBar: titleBar(context, "",
+            backgroundColor: Colors.white, iconColor: c_9B9B9B),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -68,11 +60,13 @@ class InputState extends State<Input> {
     return Column(
       children: <Widget>[
         Container(
-          child: getInput(
-            '请输入手机号或邮箱',
-          ),
+          child: getInput('请输入手机号或邮箱',
+              contentPadding: EdgeInsets.symmetric(vertical: 15)),
         ),
-        Container(child: getInput('请输入密码', obscureText: true)),
+        Container(
+            child: getInput('请输入密码',
+                contentPadding: EdgeInsets.symmetric(vertical: 15),
+                obscureText: true)),
         Container(
           width: double.infinity,
           margin: EdgeInsets.only(top: 10, bottom: 30),

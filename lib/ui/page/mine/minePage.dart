@@ -1,7 +1,18 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:otc/commom/commom_ui.dart';
 import 'package:otc/commom/titleBar.dart';
 import 'package:otc/values/color.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import 'bindEmailPage.dart';
+import 'modifyPhonePage.dart';
+import 'modifyPwdPage.dart';
+import 'nameAuthPage.dart';
+import 'nameAuthResultPage.dart';
+import 'orderListPage.dart';
+import 'receiptAccountPage.dart';
 
 class MinePage extends StatefulWidget {
   @override
@@ -142,27 +153,45 @@ class MineBody extends StatelessWidget {
           height: 8,
         ),
         //下部分
-        _getItem(Icons.email, "邮箱", "15634345353", Icons.chevron_right,
-            () => {Fluttertoast.showToast(msg: "sdsdsd")}),
-        _getItem(Icons.email, "邮箱", "绑定", Icons.chevron_right, () => {}),
-        _getItem(Icons.email, "邮箱", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.phone, "手机号", "15634345353", Icons.chevron_right,
+            () => {openPage(context, ModifyPhonePage())}),
+        _getItem(Icons.email, "邮箱", "绑定", Icons.chevron_right,
+            () => {openPage(context, BindEmailPage())}),
+        _getItem(Icons.email, "实名认证", "", Icons.chevron_right, () {
+          var nextInt = Random().nextInt(3);
+          switch (nextInt) {
+            case 0:
+              openPage(context, NameAuthPage());
+              break;
+            case 1:
+              openPage(context, NameAuthResultPage(1));
+              break;
+            case 2:
+              openPage(context, NameAuthResultPage(2));
+              break;
+          }
+        }),
         Container(
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "登录密码设置", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.email, "登录密码设置", "", Icons.chevron_right,
+            () => {openPage(context, ModifyPwdPage())}),
         _getItem(Icons.email, "资金密码设置", "", Icons.chevron_right, () => {}),
         Container(
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "历史订单", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.email, "历史订单", "", Icons.chevron_right, () => {
+          openPage(context, OrderListPage())
+        }),
         _getItem(Icons.email, "财务明细", "", Icons.chevron_right, () => {}),
         Container(
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "收款账户设置", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.email, "收款账户设置", "", Icons.chevron_right,
+            () => {openPage(context, ReceiptAccountPage())}),
         _getItem(Icons.email, "提币地址设置", "", Icons.chevron_right, () => {}),
       ],
     );

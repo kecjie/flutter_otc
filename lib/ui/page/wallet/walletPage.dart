@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:otc/commom/commom_ui.dart';
 import 'package:otc/commom/titleBar.dart';
 import 'package:otc/values/color.dart';
 
 import 'btcChargePage.dart';
+import 'btcDetailPage.dart';
+import 'btcWithdrawPage.dart';
 
 class WalletPage extends StatefulWidget {
   @override
@@ -161,17 +164,12 @@ class WalletPageState extends State<WalletPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    _getTabBtn("转账", () => {}),
+                    _getTabBtn("转账", () => {openPage(context, BtcDetailPage())}),
                     _getTabBtn("收款", () => {}),
                     _getTabBtn(
-                        "充币",
-                        () => {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => BtcChargePage()))
-                            }),
-                    _getTabBtn("提币", () => {}),
+                        "充币", () => {openPage(context, BtcChargePage())}),
+                    _getTabBtn(
+                        "提币", () => {openPage(context, BtcWithdrawPage())}),
                   ],
                 )
               ],

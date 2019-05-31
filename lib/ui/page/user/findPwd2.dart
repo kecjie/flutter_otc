@@ -18,7 +18,6 @@ class FindPwd2 extends StatelessWidget {
           child: Container(
             child: Column(
               children: <Widget>[
-                Divider(),
                 Row(children: <Widget>[
                   ScopedModelDescendant<SelectedModel>(
                     builder: (context, child, model) => _TextLine(

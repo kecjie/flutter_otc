@@ -7,10 +7,7 @@ import 'package:otc/ui/page/mine/minePage.dart';
 import 'package:otc/ui/page/wallet/walletPage.dart';
 import 'appBottomNavigationBar.dart';
 
-
-/**
- * 主页
- */
+///主页
 class MainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

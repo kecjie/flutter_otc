@@ -182,16 +182,6 @@ class _PayDetailPageState extends State<PayDetailPage> {
     );
   }
 
-  Widget getItem(String item) {
-    return Container(
-        alignment: Alignment.center,
-        width: double.infinity,
-        height: 40,
-        decoration:
-            BoxDecoration(border: Border(bottom: BorderSide(color: c_F0F0F0))),
-        child: Text(item));
-  }
-
   String info = '1、请您在订单支付有效时间内，选择一种支付方式进行支付，同时转账备注信息只能填写“订单号”，' +
       '如果填写其他信息，商家可以选择不予接单，超过订单支付有效时间，系统会将订单自动取消；\n 2、付款完成后，请务必点击“标记已付款”，逾期系统将自动取消本次交易。';
 }

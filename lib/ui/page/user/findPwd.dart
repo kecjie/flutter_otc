@@ -17,7 +17,6 @@ class FindPwd extends StatelessWidget {
       body: Container(
         child: Column(
           children: <Widget>[
-            Divider(),
             Container(
               margin: EdgeInsets.only(left: 22, right: 22, top: 10, bottom: 10),
               child: Column(
