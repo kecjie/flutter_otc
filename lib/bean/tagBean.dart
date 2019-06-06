@@ -34,4 +34,12 @@ class ChangeTag {
     _prePosSelected = index;
     return tags;
   }
+
+  List<T> changeSelectedTag2<T extends BaseTagBean>(List<T> tags, int index) {
+    tags.forEach((item) {
+      item.isSelected=false;
+    });
+    tags[index].isSelected=true;
+    return tags;
+  }
 }

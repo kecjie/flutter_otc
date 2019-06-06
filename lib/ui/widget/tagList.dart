@@ -9,6 +9,7 @@ class TagList extends StatefulWidget {
 
   final double spacing;
   final double runSpacing;
+  final bool optimize;    //使用优化单选的方式,特定情况下使用
 
   final TagCallback tagCallback;
 
@@ -17,6 +18,7 @@ class TagList extends StatefulWidget {
       @required this.list,
       this.spacing = 7,
       this.runSpacing = 7,
+      this.optimize = false,
       this.tagCallback})
       : super(key: key);
 
@@ -34,7 +36,11 @@ class TagListState extends State<TagList> with ChangeTag {
 
   changeTag(int index) {
     setState(() {
-      changeSelectedTag(widget.list, index);
+      if(widget.optimize) {
+        changeSelectedTag(widget.list, index);
+      }else {
+        changeSelectedTag2(widget.list, index);
+      }
     });
   }
 

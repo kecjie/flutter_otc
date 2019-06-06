@@ -1,8 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:otc/bean/tagBean.dart';
+import 'package:otc/commom/commom_ui.dart';
+import 'package:otc/ui/page/mine/orderFilterPopup.dart';
+import 'package:otc/ui/widget/tagList.dart';
 import 'package:otc/values/color.dart';
 
 import 'backlogOrderWidget.dart';
-
 
 ///广告
 class OrderListPage extends StatefulWidget {
@@ -16,6 +21,13 @@ class OrderListPage extends StatefulWidget {
 class _OrderListPageState extends State<OrderListPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+
+  OverlayEntry _overlayEntry;
+
+  final List<TagBean> tagList =
+      List.generate(3, (index) => TagBean("${index}辅导费", false));
+  final List<TagBean> tagList2 =
+      List.generate(2, (index) => TagBean("${index}辅导费", false));
 
   @override
   void dispose() {
@@ -45,7 +57,7 @@ class _OrderListPageState extends State<OrderListPage>
     return Scaffold(
       appBar: AppBar(
         title: Container(
-          width: 130,
+          width: 180,
           height: 30,
           decoration: BoxDecoration(
               border: Border.all(color: Colors.white),
@@ -58,30 +70,47 @@ class _OrderListPageState extends State<OrderListPage>
                   color: Colors.white,
                   borderRadius: _isLeft
                       ? BorderRadius.only(
-                      topLeft: Radius.circular(5),
-                      bottomLeft: Radius.circular(5))
+                          topLeft: Radius.circular(5),
+                          bottomLeft: Radius.circular(5))
                       : BorderRadius.only(
-                      topRight: Radius.circular(5),
-                      bottomRight: Radius.circular(5))),
+                          topRight: Radius.circular(5),
+                          bottomRight: Radius.circular(5))),
               tabs: <Widget>[
                 Tab(
                   child: Text(
-                    "购买",
+                    "待办订单",
                     style: TextStyle(
                         color: _isLeft ? c_2B3F77 : Colors.white, fontSize: 14),
                   ),
                 ),
                 Tab(
-                    child: Text("出售",
-                        style: TextStyle(
-                            color: _isLeft ? Colors.white : c_2B3F77,
-                            fontSize: 14)))
+                  child: Text(
+                    "在线订单",
+                    style: TextStyle(
+                        color: _isLeft ? Colors.white : c_2B3F77, fontSize: 14),
+                  ),
+                )
               ]),
         ),
         centerTitle: true,
         actions: <Widget>[
-          Icon(Icons.add),
-          Padding(padding: EdgeInsets.only(right: 15),)
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: () {
+//              showPopup(context);
+              createSelectPopupWindow(tagList,tagList2,context: context);
+//              if (_overlayEntry == null) {
+//                _overlayEntry = createSelectPopupWindow(
+//                  tagList,
+//                  tagList2,
+//                  onTap: () {
+//                    _overlayEntry.remove();
+//                  },
+//                );
+//              }
+//              Overlay.of(context).insert(_overlayEntry);
+            },
+          ),
         ],
       ),
       body: _isLeft ? BackLogOrderWidget() : BackLogOrderWidget(),
