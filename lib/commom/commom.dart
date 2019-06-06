@@ -62,7 +62,7 @@ Widget getBtn(String text, Function press,
     Color btnColor = c_D5D7DE,
     Color textColor: Colors.white}) {
   return SizedBox(
-    width: double.infinity,
+    width: width,
     height: height,
     child: RaisedButton(
       color: btnColor,

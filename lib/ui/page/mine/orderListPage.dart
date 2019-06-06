@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:otc/bean/tagBean.dart';
 import 'package:otc/commom/commom_ui.dart';
-import 'package:otc/ui/page/mine/orderFilterPopup.dart';
+import 'package:otc/ui/page/mine/orderFilterPopup1.dart';
+import 'package:otc/ui/page/mine/orderFilterPopup2.dart';
 import 'package:otc/ui/widget/tagList.dart';
 import 'package:otc/values/color.dart';
 
@@ -97,18 +98,11 @@ class _OrderListPageState extends State<OrderListPage>
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
-//              showPopup(context);
-              createSelectPopupWindow(tagList,tagList2,context: context);
-//              if (_overlayEntry == null) {
-//                _overlayEntry = createSelectPopupWindow(
-//                  tagList,
-//                  tagList2,
-//                  onTap: () {
-//                    _overlayEntry.remove();
-//                  },
-//                );
-//              }
-//              Overlay.of(context).insert(_overlayEntry);
+              if (_isLeft) {
+                createSelectPopupWindow(tagList, tagList2, context: context);
+              } else {
+                createSelectPopupWindow2(tagList, context: context);
+              }
             },
           ),
         ],

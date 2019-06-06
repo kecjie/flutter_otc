@@ -4,7 +4,7 @@ import 'package:otc/commom/titleBar.dart';
 import 'package:otc/values/color.dart';
 
 import 'qRCodePage.dart';
-
+///Btc充值
 class BtcChargePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

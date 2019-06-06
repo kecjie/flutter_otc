@@ -10,12 +10,12 @@ import 'package:otc/values/values.dart';
  * 利用Overlay实现PopupWindow效果，悬浮的widget
  * 利用CompositedTransformFollower和CompositedTransformTarget
  */
-createSelectPopupWindow<T>(
+createSelectPopupWindow(
   List<TagBean> tagList,
   List<TagBean> tagList2, {
   BuildContext context,
 }) {
-  return showPopup(context, _getPopup(tagList, tagList2));
+  showPopup(context, _getPopup(tagList, tagList2));
 }
 
 Widget _getPopup(

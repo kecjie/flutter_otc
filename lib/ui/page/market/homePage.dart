@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:otc/commom/commom_ui.dart';
 import 'package:otc/values/color.dart';
 
+import 'extractPage.dart';
 import 'gatheringPage.dart';
 import 'homeContent.dart';
 import 'payPage.dart';
+import 'rechargePage.dart';
 import 'transferPage.dart';
 
 /**
@@ -93,17 +95,15 @@ class HomePageState extends State<HomePage>
       width: double.infinity,
       child: Row(
         children: <Widget>[
-          _getTag("images/bg.jpg", "扫一扫", () => {
-            openPage(context, PayPage())
-          }),
-          _getTag("images/bg.jpg", "转账", () => {
-            openPage(context, TransterPage())
-          }),
-          _getTag("images/bg.jpg", "收款", () => {
-            openPage(context,GatheringPage())
-          }),
-          _getTag("images/bg.jpg", "充币", () => {}),
-          _getTag("images/bg.jpg", "提币", () => {}),
+          _getTag("images/bg.jpg", "扫一扫", () => {openPage(context, PayPage())}),
+          _getTag(
+              "images/bg.jpg", "转账", () => {openPage(context, TransterPage())}),
+          _getTag("images/bg.jpg", "收款",
+              () => {openPage(context, GatheringPage())}),
+          _getTag(
+              "images/bg.jpg", "充币", () => {openPage(context, RechargePage())}),
+          _getTag(
+              "images/bg.jpg", "提币", () => {openPage(context, ExtractPage())}),
         ],
       ),
     );
