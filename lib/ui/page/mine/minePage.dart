@@ -6,7 +6,10 @@ import 'package:otc/commom/titleBar.dart';
 import 'package:otc/values/color.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import 'accountDetailPage.dart';
 import 'bindEmailPage.dart';
+import 'coinAddressPage.dart';
+import 'messagePage.dart';
 import 'modifyPhonePage.dart';
 import 'modifyPwdPage.dart';
 import 'nameAuthPage.dart';
@@ -64,41 +67,38 @@ class _MinePageState extends State<MinePage> {
           backgroundColor: Theme.of(context).primaryColor,
           showLeading: false,
           titltColor: Colors.white),
-      body: Column(
-        children: <Widget>[
-          Container(
-            color: Theme.of(context).primaryColor,
-            child: SizedBox(
-              width: double.infinity,
-              height: 106,
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 16),
-                  ),
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: NetworkImage(
-                        "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 22),
-                  ),
-                  InkWell(
-                    onTap: () => {_changeLoginState()},
-                    child: _isLogin ? _getLoginedState() : _getUnLoginState(),
-                  )
-                ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              color: Theme.of(context).primaryColor,
+              child: SizedBox(
+                width: double.infinity,
+                height: 106,
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 16),
+                    ),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(
+                          "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3463668003,3398677327&fm=58"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 22),
+                    ),
+                    InkWell(
+                      onTap: () => {_changeLoginState()},
+                      child: _isLogin ? _getLoginedState() : _getUnLoginState(),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          MineBody(),
-          Expanded(
-            child: Container(
-              color: c_F0F0F0,
-            ),
-          )
-        ],
+            MineBody(),
+          ],
+        ),
       ),
     );
   }
@@ -153,11 +153,13 @@ class MineBody extends StatelessWidget {
           height: 8,
         ),
         //下部分
+        _getItem(Icons.message, "消息", "", Icons.chevron_right,
+                () => {openPage(context, MessagePage())}),
         _getItem(Icons.phone, "手机号", "15634345353", Icons.chevron_right,
             () => {openPage(context, ModifyPhonePage())}),
         _getItem(Icons.email, "邮箱", "绑定", Icons.chevron_right,
             () => {openPage(context, BindEmailPage())}),
-        _getItem(Icons.email, "实名认证", "", Icons.chevron_right, () {
+        _getItem(Icons.camera, "实名认证", "", Icons.chevron_right, () {
           var nextInt = Random().nextInt(3);
           switch (nextInt) {
             case 0:
@@ -175,24 +177,45 @@ class MineBody extends StatelessWidget {
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "登录密码设置", "", Icons.chevron_right,
+        _getItem(Icons.location_on, "登录密码设置", "", Icons.chevron_right,
             () => {openPage(context, ModifyPwdPage())}),
-        _getItem(Icons.email, "资金密码设置", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.ac_unit, "资金密码设置", "", Icons.chevron_right, () => {}),
         Container(
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "历史订单", "", Icons.chevron_right, () => {
-          openPage(context, OrderListPage())
-        }),
-        _getItem(Icons.email, "财务明细", "", Icons.chevron_right, () => {}),
+        _getItem(Icons.add_shopping_cart, "历史订单", "", Icons.chevron_right,
+            () => {openPage(context, OrderListPage())}),
+        _getItem(
+            Icons.account_box,
+            "财务明细",
+            "",
+            Icons.chevron_right,
+            () => {
+                  openPage(context, AccountDetailPage()),
+                }),
         Container(
           color: c_F0F0F0,
           height: 8,
         ),
-        _getItem(Icons.email, "收款账户设置", "", Icons.chevron_right,
-            () => {openPage(context, ReceiptAccountPage())}),
-        _getItem(Icons.email, "提币地址设置", "", Icons.chevron_right, () => {}),
+        _getItem(
+          Icons.account_balance_wallet,
+          "收款账户设置",
+          "",
+          Icons.chevron_right,
+          () => {openPage(context, ReceiptAccountPage())},
+        ),
+        _getItem(
+          Icons.local_airport,
+          "提币地址设置",
+          "",
+          Icons.chevron_right,
+          () => {openPage(context, CoinAddressPage())},
+        ),
+        Container(
+          color: c_F0F0F0,
+          height: 22,
+        ),
       ],
     );
   }

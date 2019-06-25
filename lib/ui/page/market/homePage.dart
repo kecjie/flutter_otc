@@ -166,6 +166,7 @@ class HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
           title: Stack(
             alignment: AlignmentDirectional.center,

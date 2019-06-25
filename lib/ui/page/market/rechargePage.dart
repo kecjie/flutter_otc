@@ -76,19 +76,25 @@ class _RechargePageState extends State<RechargePage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              getBtn(
-                "复制链接",
-                () {},
-                width: 168,
-                btnColor: Colors.white,
-                textColor: c_2B3F77,
+              Expanded(
+
+                child: getBtn(
+                  "复制链接",
+                  () {},
+                  width: double.infinity,
+                  btnColor: Colors.white,
+                  textColor: c_2B3F77,
+                ),
               ),
-              getBtn(
-                "分享图片",
-                () {},
-                width: 168,
-                btnColor: Colors.white,
-                textColor: c_2B3F77,
+              Padding(padding: EdgeInsets.only(left: 20),),
+              Expanded(
+                child: getBtn(
+                  "分享图片",
+                  () {},
+                  width: double.infinity,
+                  btnColor: Colors.white,
+                  textColor: c_2B3F77,
+                ),
               ),
             ],
           ),

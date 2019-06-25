@@ -77,37 +77,58 @@ class DealDrawerState extends State<DealDrawer> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          _getArea("选择币种", tagList),
-          Padding(
-            padding: EdgeInsets.only(top: 35),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _getArea("选择币种", tagList),
+                    Padding(
+                      padding: EdgeInsets.only(top: 35),
+                    ),
+                    _getArea("法币币种", tagList2),
+                    Padding(
+                      padding: EdgeInsets.only(top: 35),
+                    ),
+                    _getArea("金额", tagList3),
+                    Padding(
+                      padding: EdgeInsets.only(top: 35),
+                    ),
+                    _getArea("支付方式", tagList4),
+                    SizedBox(
+                      height: 20,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          _getArea("法币币种", tagList2),
-          Padding(
-            padding: EdgeInsets.only(top: 35),
-          ),
-          _getArea("金额", tagList3),
-          Padding(
-            padding: EdgeInsets.only(top: 35),
-          ),
-          Expanded(child: _getArea("支付方式", tagList4)),
           Row(
             children: <Widget>[
               Expanded(
                   child: Container(
-                    height: 40,
-                    color: Colors.white,
+                      height: 40,
+                      color: Colors.white,
                       child: FlatButton(
-                onPressed: () {},
-                child: Text("重置",style: TextStyle(color: c_ACACAC,fontSize: 13),),
-              ))),
+                        onPressed: () {},
+                        child: Text(
+                          "重置",
+                          style: TextStyle(color: c_ACACAC, fontSize: 13),
+                        ),
+                      ))),
               Expanded(
                   child: Container(
-                    height: 40,
-                    color: c_2B3F77,
+                      height: 40,
+                      color: c_2B3F77,
                       child: FlatButton(
-                onPressed: () {},
-                child: Text("筛选",style: TextStyle(color: Colors.white,fontSize: 13),),
-              ))),
+                        onPressed: () {},
+                        child: Text(
+                          "筛选",
+                          style: TextStyle(color: Colors.white, fontSize: 13),
+                        ),
+                      ))),
             ],
           )
         ],
@@ -115,4 +136,3 @@ class DealDrawerState extends State<DealDrawer> {
     );
   }
 }
-

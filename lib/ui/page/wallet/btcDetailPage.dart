@@ -7,7 +7,7 @@ import 'package:otc/ui/dialog/bottomSheet.dart';
 import 'package:otc/ui/widget/drawer.dart';
 import 'package:otc/values/color.dart';
 
-///btn明细
+///btc明细
 class BtcDetailPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

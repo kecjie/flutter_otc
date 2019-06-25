@@ -23,8 +23,6 @@ class _OrderListPageState extends State<OrderListPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
-  OverlayEntry _overlayEntry;
-
   final List<TagBean> tagList =
       List.generate(3, (index) => TagBean("${index}辅导费", false));
   final List<TagBean> tagList2 =
