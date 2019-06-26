@@ -66,9 +66,9 @@ class PayContentState extends State<PayContent> {
                             Text("在线",
                                 style:
                                     TextStyle(color: c_ACACAC, fontSize: 12)),
-                            Icon(Icons.add),
-                            Icon(Icons.search),
-                            Icon(Icons.arrow_forward),
+                            Icon(Icons.radio),
+                            Icon(Icons.security),
+                            Icon(Icons.camera),
                           ],
                         )
                       ],

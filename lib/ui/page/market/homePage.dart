@@ -152,8 +152,8 @@ class HomePageState extends State<HomePage>
       controller: _tabController,
       children: <Widget>[
         HomeContent(),
-        Center(child: new Text('船')),
-        Center(child: new Text('sdfsf')),
+        Center(child: new Text('btc')),
+        Center(child: new Text('eth')),
         Center(child: new Text('sada')),
         Center(child: new Text('sada')),
         Center(child: new Text('sada')),

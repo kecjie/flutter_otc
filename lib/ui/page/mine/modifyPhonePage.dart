@@ -14,6 +14,7 @@ class _ModifyPhonePageState extends State<ModifyPhonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: titleBar(context, "修改手机号"),
       body: _getContent(),
     );
